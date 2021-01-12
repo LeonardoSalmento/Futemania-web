@@ -1,16 +1,56 @@
 <template>
   <div id="app">
-    <Header />
+    <Header 
+    @select-championship="changeChampionship"
+    @change-component="changeComponent"
+    />
+    <Section 
+    :championship="championship"
+    :current-component="currentSectionComponent"
+    />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
+import Section from './components/Section'
+import Footer from './components/Footer'
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Footer,
+    Section
+  }, 
+  data() {
+    return {
+      championship: 'Campeonato Alemão',
+      currentSectionComponent: 'SectionBanner'
+    }
+  },
+  methods: {
+    changeChampionship(value){
+      this.championship = value;
+    },
+    changeComponent(value){
+      let component;
+      
+      switch(value){
+        case 'home':
+        default:
+          component = 'SectionBanner'
+        
+        break;
+        
+        case 'news':
+          component = 'SectionNews'
+          break;
+      }
+
+      this.currentSectionComponent = component;
+    }
   }
 }
 </script>

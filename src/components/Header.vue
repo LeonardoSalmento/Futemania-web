@@ -13,6 +13,15 @@
                     <a href="#" @click.prevent="$emit('change-component', 'classification')" class="btn mr-5">Classificação</a>
                     <a href="#" @click.prevent="$emit('change-component', 'scorers')" class="btn mr-5">Artilharia/Assistências</a>
 
+                    <select name="championship" id="select-championship" class="form-control"
+                        @change="$emit('select-championship',$event.target.value)">
+                            <option value="Campeonato Alemão" selected>Campeonato Alemão</option>
+                            <option value="Campeonato Brasileiro">Campeonato Brasileiro</option>
+                            <option value="Campeonato Espanhol">Campeonato Espanhol</option>
+                            <option value="Campeonato Inglês">Campeonato Inglês</option>
+                            <option value="Campeonato Italiano">Campeonato Italiano</option>
+                        </select>
+
                 </div>
             </nav>
         </div>
