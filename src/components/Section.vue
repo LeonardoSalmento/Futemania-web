@@ -14,7 +14,7 @@
                     <h2>Seu time é: {{ myClub }}</h2>
                 </div>
                 <div class="col-6">
-                    <Input v-model="myClub"/>
+                    <Input/>
                 </div>
             </div>
         </div>
@@ -26,6 +26,7 @@
 <script>
     import SectionBanner from './SectionBanner' 
     import Input from './Input.vue'
+    import {mapGetters} from 'vuex'
     
     
 export default {
@@ -36,13 +37,18 @@ export default {
     },
     data(){
         return {
-            myClub: 'Futemania'
+            
         }
     },
     props: {
-        championship: String,
         currentComponent: String
-    }
+    },
+    computed: {
+        ...mapGetters({
+            championship: 'getChampionship',
+            myClub: 'getMyClub'
+        }) 
+        }
 }
 </script>
 

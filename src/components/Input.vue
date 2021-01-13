@@ -1,12 +1,16 @@
 <template>
-    <input type="text" class="form-control" placeholder="Digite o seu clube" :value="value" @keyup="$emit('input', $event.target.value)">
+    <input type="text" class="form-control" placeholder="Digite o seu clube" :value="myClub" @keyup="updateMyClub($event.target.value)">
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
-    props: {
-        value: String
-    }
+    computed: mapGetters({
+        myClub: 'getMyClub'
+        }),
+    methods: mapActions(['updateMyClub'])
+
 }
 </script>
 

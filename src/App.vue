@@ -5,7 +5,6 @@
     @change-component="changeComponent"
     />
     <Section 
-    :championship="championship"
     :current-component="currentSectionComponent"
     />
     <Footer />
@@ -16,6 +15,7 @@
 import Header from './components/Header'
 import Section from './components/Section'
 import Footer from './components/Footer'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'App',
@@ -26,14 +26,11 @@ export default {
   }, 
   data() {
     return {
-      championship: 'Campeonato Alemão',
       currentSectionComponent: 'SectionBanner'
     }
   },
   methods: {
-    changeChampionship(value){
-      this.championship = value;
-    },
+    ...mapActions(['changeChampionship']),
     changeComponent(value){
       let component;
       
