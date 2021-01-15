@@ -8,8 +8,8 @@
                 </a>
 
                 <div class="links mr-2">
-                    <a href="#" @click.prevent="$emit('change-component', 'home')" class="btn mr-5">Início</a>
-                    <a href="#" @click.prevent="$emit('change-component', 'news')" class="btn mr-5">Notícias</a>
+                    <router-link to="/" class="btn mr-5">Início</router-link>
+                    <router-link to="/news" class="btn mr-5">Notícias</router-link>
                     <a href="#" @click.prevent="$emit('change-component', 'classification')" class="btn mr-5">Classificação</a>
                     <a href="#" @click.prevent="$emit('change-component', 'scorers')" class="btn mr-5">Artilharia/Assistências</a>
 
@@ -58,6 +58,10 @@ background-color: #006633;
 .links a:focus {
     outline: none !important;
     box-shadow: none !important;
+}
+.link-active {
+    background-color: #003333;
+    color: #000;
 }
 
 </style>

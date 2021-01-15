@@ -5,7 +5,7 @@
     @change-component="changeComponent"
     />
     <Section 
-    :current-component="currentSectionComponent"
+    
     />
     <Footer />
   </div>
@@ -26,7 +26,6 @@ export default {
   }, 
   data() {
     return {
-      currentSectionComponent: 'SectionBanner'
     }
   },
   methods: {

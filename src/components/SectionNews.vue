@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section>
+        <section class="section-news">
             <div class="container">
                 <SectionNewsItem 
                     v-for="notice in news"
@@ -10,6 +10,9 @@
                     :news-title="notice.title"
                     :news-date="notice.date"
                 > 
+                <template #title>
+                    <router-link :to="{name: 'newsDetail', params: {idNews: notice.id}}" tag="h2">{{notice.title}}</router-link>
+                </template>    
                     <p>{{ notice.content | truncate(200) }}</p>
                 </SectionNewsItem>
             </div>
@@ -34,12 +37,14 @@ export default {
             ...mapGetters({
                 news: 'getNews'
             })
+        },
+        methods: {
         }
 }
 </script>
 
-<style scoped>
-section{
+<style>
+.section-news{
     padding: 50px 0;
     margin-top: 25px;
     background-color: #006633;

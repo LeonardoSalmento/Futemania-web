@@ -5,8 +5,10 @@
                 <h3>Você está vendo as notícias do: {{ championship }}</h3>
             </div>
         </div>
-
-        <component :is="currentComponent"></component>
+        <transition name="fade-view" mode="out-in">
+            <router-view></router-view>
+        </transition>
+        <!-- <component :is="currentComponent"></component> -->
 
         <div class="container">
             <div class="row my-club mt-5">
@@ -24,15 +26,12 @@
 </template>
 
 <script>
-    import SectionBanner from './SectionBanner' 
     import Input from './Input.vue'
     import {mapGetters} from 'vuex'
     
     
 export default {
     components: {
-        SectionBanner,
-        SectionNews: () => import ('./SectionNews.vue'),
         Input
     },
     data(){
@@ -53,5 +52,10 @@ export default {
 </script>
 
 <style scoped>
-
+.fade-view-enter, .fade-view-leave-to {
+    opacity: 0;
+}
+.fade-view-enter-active, .fade-view-leave-to-active {
+    transition: opacity .5s ease-in-out;
+}
 </style>
